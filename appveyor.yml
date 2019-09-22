@@ -45,6 +45,7 @@ artifacts:
 deploy:
 - provider: GitHub
     release: v$(APPVEYOR_BUILD_VERSION)
+	tag: $(APPVEYOR_REPO_TAG_NAME)
     auth_token:
       secure: WWyoRtwhic6YmQW9Y92co1Spea5uKJ82UfcZ8lzZPp3YOQnzCU7V7RX9R7bXqbmx
     artifact: packages
@@ -52,6 +53,7 @@ deploy:
     prerelease: false
     on:
       branch: master
+	  APPVEYOR_REPO_TAG: true
 - provider: GitHub
     release: v$(APPVEYOR_BUILD_VERSION)
     auth_token:
@@ -63,13 +65,6 @@ deploy:
       branch: develop
 - provider: NuGet
   server: https://www.myget.org/F/nsarris-citest/api/v2/package
-  api_key:
-    secure: oCcFfuNnxI4ng/H0WAIBxyD/3UisznKgApuMgBZlC99fINvj1l6CH0UeKCN25uJi
-  skip_symbols: false
-  on:
-    branch: develop
-- provider: NuGet
-  server: https://www.myget.org/F/nsarris-citest/api/v2/package
   name: production
   api_key:
     secure: oCcFfuNnxI4ng/H0WAIBxyD/3UisznKgApuMgBZlC99fINvj1l6CH0UeKCN25uJi
@@ -77,10 +72,23 @@ deploy:
   on:
     branch: master
     appveyor_repo_tag: true
-
+- provider: NuGet
+  server: https://www.myget.org/F/nsarris-citest/api/v2/package
+  api_key:
+    secure: oCcFfuNnxI4ng/H0WAIBxyD/3UisznKgApuMgBZlC99fINvj1l6CH0UeKCN25uJi
+  skip_symbols: false
+  on:
+    branch: develop
+	
 for:
 - branches:
     only:
       - master
 	  
   skip_non_tags: true	
+
+- branches:
+    only:
+      - develop
+	  
+  skip_tags: true	
