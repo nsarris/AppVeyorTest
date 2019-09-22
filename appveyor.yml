@@ -1,0 +1,86 @@
+version: '{build}'
+
+image: Visual Studio 2019
+
+pull_requests:
+  do_not_increment_build_number: true
+  
+branches:
+  only:
+  - master
+  - develop
+
+nuget:
+  disable_publish_on_pr: true
+
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+install:
+  - ps: dotnet tool install --global Cake.Tool --version 0.34.1
+
+configuration: Release
+
+build_script:
+  - ps: dotnet cake build.cake --bootstrap
+  - ps: dotnet cake build.cake --pack
+
+assembly_info:
+  patch: false
+  
+skip_commits:
+  files:
+    - LICENSE
+    - README.md
+
+test: on
+
+artifacts:
+- path: .\artifacts\**\*.nupkg
+  name: NuGet
+- path: .\Artifacts\**\*.xml
+  name: xUnit Test Results
+
+deploy:
+- provider: GitHub
+    release: v$(APPVEYOR_BUILD_VERSION)
+    auth_token:
+      secure: WWyoRtwhic6YmQW9Y92co1Spea5uKJ82UfcZ8lzZPp3YOQnzCU7V7RX9R7bXqbmx
+    artifact: packages
+    draft: false
+    prerelease: false
+    on:
+      branch: master
+- provider: GitHub
+    release: v$(APPVEYOR_BUILD_VERSION)
+    auth_token:
+      secure: WWyoRtwhic6YmQW9Y92co1Spea5uKJ82UfcZ8lzZPp3YOQnzCU7V7RX9R7bXqbmx
+    artifact: packages
+    draft: false
+    prerelease: true
+    on:
+      branch: develop
+- provider: NuGet
+  server: https://www.myget.org/F/nsarris-citest/api/v2/package
+  api_key:
+    secure: oCcFfuNnxI4ng/H0WAIBxyD/3UisznKgApuMgBZlC99fINvj1l6CH0UeKCN25uJi
+  skip_symbols: false
+  on:
+    branch: develop
+- provider: NuGet
+  server: https://www.myget.org/F/nsarris-citest/api/v2/package
+  name: production
+  api_key:
+    secure: oCcFfuNnxI4ng/H0WAIBxyD/3UisznKgApuMgBZlC99fINvj1l6CH0UeKCN25uJi
+  skip_symbols: true
+  on:
+    branch: master
+    appveyor_repo_tag: true
+
+for:
+- branches:
+    only:
+      - master
+	  
+  skip_non_tags: true	

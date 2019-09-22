@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppVeyorTest", "AppVeyorTest\AppVeyorTest.csproj", "{5FE321E4-447D-4DCD-A6A3-B0DEF846E172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppVeyorTest.Tests", "AppVeyorTest.Tests\AppVeyorTest.Tests.csproj", "{F050114F-CF5A-419C-9348-157791ED5161}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FE321E4-447D-4DCD-A6A3-B0DEF846E172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE321E4-447D-4DCD-A6A3-B0DEF846E172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE321E4-447D-4DCD-A6A3-B0DEF846E172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE321E4-447D-4DCD-A6A3-B0DEF846E172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F050114F-CF5A-419C-9348-157791ED5161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F050114F-CF5A-419C-9348-157791ED5161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F050114F-CF5A-419C-9348-157791ED5161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F050114F-CF5A-419C-9348-157791ED5161}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C44F5556-46E2-4132-B844-309DDEC4ADA7}
+	EndGlobalSection
+EndGlobal
