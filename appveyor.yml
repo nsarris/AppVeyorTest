@@ -48,7 +48,7 @@ deploy:
   tag: $(APPVEYOR_REPO_TAG_NAME)
   auth_token:
     secure: WWyoRtwhic6YmQW9Y92co1Spea5uKJ82UfcZ8lzZPp3YOQnzCU7V7RX9R7bXqbmx
-  artifact: packages
+  artifact: /.*\.nupkg/
   draft: false
   prerelease: false
   on:
@@ -58,7 +58,7 @@ deploy:
   release: v$(APPVEYOR_BUILD_VERSION)
   auth_token:
     secure: WWyoRtwhic6YmQW9Y92co1Spea5uKJ82UfcZ8lzZPp3YOQnzCU7V7RX9R7bXqbmx
-  artifact: packages
+  artifact: /.*\.nupkg/
   draft: false
   prerelease: true
   on:
