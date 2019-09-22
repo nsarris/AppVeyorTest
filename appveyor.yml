@@ -74,6 +74,7 @@ deploy:
     appveyor_repo_tag: true
 - provider: NuGet
   server: https://www.myget.org/F/nsarris-citest/api/v2/package
+  symbol_server: https://www.myget.org/F/nsarris-citest/symbols/api/v2/package
   api_key:
     secure: oCcFfuNnxI4ng/H0WAIBxyD/3UisznKgApuMgBZlC99fINvj1l6CH0UeKCN25uJi
   skip_symbols: false
