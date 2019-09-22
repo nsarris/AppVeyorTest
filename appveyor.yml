@@ -45,7 +45,7 @@ artifacts:
 deploy:
 - provider: GitHub
     release: v$(APPVEYOR_BUILD_VERSION)
-	tag: $(APPVEYOR_REPO_TAG_NAME)
+    tag: $(APPVEYOR_REPO_TAG_NAME)
     auth_token:
       secure: WWyoRtwhic6YmQW9Y92co1Spea5uKJ82UfcZ8lzZPp3YOQnzCU7V7RX9R7bXqbmx
     artifact: packages
@@ -53,7 +53,7 @@ deploy:
     prerelease: false
     on:
       branch: master
-	  APPVEYOR_REPO_TAG: true
+      APPVEYOR_REPO_TAG: true
 - provider: GitHub
     release: v$(APPVEYOR_BUILD_VERSION)
     auth_token:
