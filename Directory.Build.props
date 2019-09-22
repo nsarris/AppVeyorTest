@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Nikos Sarris</Authors>
+    <Company></Company>
+    <Product>AppVeyorTest</Product>
+    <Description>Description here</Description>
+    <Copyright>© Nikos Sarris</Copyright>
+    <PackageProjectUrl>https://github.com/nsarris/AppVeyorTest</PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <RepositoryUrl>https://github.com/nsarris/AppVeyorTest</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags></PackageTags>
+    <PackageReleaseNotes>Release Notes</PackageReleaseNotes>
+  </PropertyGroup>
+</Project>

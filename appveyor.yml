@@ -20,8 +20,6 @@ environment:
 install:
   - ps: dotnet tool install --global Cake.Tool --version 0.34.1
 
-configuration: Release
-
 build_script:
   - ps: dotnet cake build.cake --bootstrap
   - ps: dotnet cake build.cake --pack
