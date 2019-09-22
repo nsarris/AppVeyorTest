@@ -32,9 +32,13 @@ skip_commits:
     - LICENSE
     - README.md
 
+#tests run manually in cake script to allow xml results to be uploaded in build artifacts
+#set to on and run build script with --notests to have appveyor run the tests and handle results
 test: off
 
 artifacts:
+#nuget artifacts uploaded in cake script in order to skip package artifacts on pull request builds
+#enable below and remove the "PublishAppVeyorArtifacts" task to have appveyor handle nuget artifacts
 #- path: .\artifacts\**\*.nupkg
 #  name: NuGet
 - path: .\Artifacts\**\*.xml
